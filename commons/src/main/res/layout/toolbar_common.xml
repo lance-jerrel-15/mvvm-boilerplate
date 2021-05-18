@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="showBack"
+            type="Boolean" />
+
+        <variable
+            name="onClickBack"
+            type="android.view.View.OnClickListener" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/white">
+
+            <ImageView
+                android:src="@drawable/abc_vector_test"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="@{onClickBack}"
+                android:visibility="@{showBack ? View.VISIBLE : View.GONE}"
+                app:tint="@color/purple_500"
+                tools:visibility="visible"/>
+
+                </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+    </LinearLayout>
+</layout>

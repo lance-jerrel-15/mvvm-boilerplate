@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_margin">14dp</dimen>
+    <dimen name="image_round_rect_radius">4dp</dimen>
+
+    <dimen name="elevation_appbar">4dp</dimen>
+
+    <dimen name="spacing_xlarge">48dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_micro">4dp</dimen>
+
+    <dimen name="details_corner_cutout">64dp</dimen>
+    <dimen name="details_poster_not_elevation">0dp</dimen>
+    <dimen name="details_poster_elevation">4dp</dimen>
+
+    <dimen name="details_seasons_expanded_elevation">2dp</dimen>
+
+    <dimen name="backdrop_corner_radius">16dp</dimen>
+    <dimen name="sticky_header_elevation">6dp</dimen>
+    <dimen name="fast_scroller_radius">6dp</dimen>
+
+    <!--  transferred dimens  -->
+    <dimen name="cornerSizeDefault">50%</dimen>
+    <dimen name="cornerSizeSmall">8dp</dimen>
+    <dimen name="cornerSizeMedium">16dp</dimen>
+    <dimen name="cornerSizeLarge">24dp</dimen>
+    <dimen name="cornerSizeButton">40dp</dimen>
+    <dimen name="cornerSizeBottomSheet">24dp</dimen>
+    <dimen name="cornerSizeButtonSmall">12dp</dimen>
+
+    <dimen name="buttonTextSizeMedium">20sp</dimen>
+    <dimen name="buttonTextSizeSmall">16sp</dimen>
+    <dimen name="buttonDrawableMaxHeight">50dp</dimen>
+    <dimen name="buttonHeightSize">80dp</dimen>
+    <dimen name="buttonElevation">8dp</dimen>
+    <dimen name="buttonFabSize">40dp</dimen>
+    <dimen name="buttonFabCircleSize">32dp</dimen>
+
+    <dimen name="textSizeXXXSmall">9sp</dimen>
+    <dimen name="textSizeXXSmall">11sp</dimen>
+    <dimen name="textSizeXSmall">12sp</dimen>
+    <dimen name="textSizeSmall">14sp</dimen>
+    <dimen name="textSizeMedium">16sp</dimen>
+    <dimen name="textSizeMediumLarge">18sp</dimen>
+    <dimen name="textSizeLarge">20sp</dimen>
+    <dimen name="textSizeLarger">24sp</dimen>
+    <dimen name="textSizeXLarge">26sp</dimen>
+    <dimen name="textSizeXXLarge">30sp</dimen>
+    <dimen name="textSizeXXXLarge">36sp</dimen>
+    <dimen name="textSizeXXXXLarge">56sp</dimen>
+
+    <dimen name="padding_2">2dp</dimen>
+    <dimen name="padding_4">4dp</dimen>
+    <dimen name="padding_6">6dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
+    <dimen name="padding_20">20dp</dimen>
+    <dimen name="padding_24">24dp</dimen>
+
+    <dimen name="elevation_small">4dp</dimen>
+    <dimen name="elevation_8">8dp</dimen>
+    <dimen name="elevation_btn">10dp</dimen>
+
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_6">6dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+
+    <dimen name="size_4">4dp</dimen>
+    <dimen name="size_8">8dp</dimen>
+    <dimen name="size_10">10dp</dimen>
+    <dimen name="size_12">12dp</dimen>
+    <dimen name="size_14">14dp</dimen>
+    <dimen name="size_16">16dp</dimen>
+    <dimen name="size_20">20dp</dimen>
+    <dimen name="size_22">22dp</dimen>
+    <dimen name="size_24">24dp</dimen>
+    <dimen name="size_50">250dp</dimen>
+    <dimen name="dp_half_dp">0.5dp</dimen>
+    <dimen name="dp_1">1dp</dimen>
+
+    <dimen name="space_micro">4dp</dimen>
+    <dimen name="space_small">8dp</dimen>
+    <dimen name="space_medium">12dp</dimen>
+    <dimen name="space_large">16dp</dimen>
+    <dimen name="space_xlarge">24dp</dimen>
+    <dimen name="default_side_space">24dp</dimen>
+    <dimen name="default_side_top">20dp</dimen>
+
+    <dimen name="item_bag_image_height">108dp</dimen>
+    <dimen name="space_50">50dp</dimen>
+
+    <dimen name="_0_dp">0dp</dimen>
+</resources>

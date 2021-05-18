@@ -1,0 +1,87 @@
+import com.mvvm.Dependencies
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources true
+
+        unitTests.all {
+            testLogging.events = ["passed", "skipped", "failed"]
+        }
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation project(':data')
+    implementation project(':commons')
+
+    testImplementation Dependencies.Koin.test
+    testImplementation Dependencies.Mockito.core
+    testImplementation Dependencies.Arch.core
+
+    testImplementation Dependencies.AndroidX.Test.junit
+    androidTestImplementation Dependencies.AndroidX.Test.testUnit
+    androidTestImplementation Dependencies.AndroidX.Test.espressoCore
+
+    implementation Dependencies.AndroidX.coreKtx
+    implementation Dependencies.AndroidX.appcompat
+    implementation Dependencies.AndroidX.constraintLayout
+    implementation Dependencies.AndroidX.legacy
+
+    implementation Dependencies.AndroidX.Lifecycle.livedata
+    implementation Dependencies.AndroidX.Lifecycle.viewmodel
+
+    implementation Dependencies.AndroidX.Navigation.fragment
+    implementation Dependencies.AndroidX.Navigation.ui
+
+    implementation Dependencies.Koin.android
+    implementation Dependencies.Koin.viewmodel
+
+    implementation Dependencies.AndroidX.Coroutines.core
+    implementation Dependencies.AndroidX.Coroutines.android
+    implementation Dependencies.AndroidX.Coroutines.test
+
+    implementation Dependencies.OkHttp.loggingInterceptor
+    implementation Dependencies.Retrofit.moshiConverter
+
+    implementation Dependencies.Google.material
+
+
+}

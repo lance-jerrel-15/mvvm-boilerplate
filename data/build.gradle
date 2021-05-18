@@ -1,0 +1,14 @@
+import com.mvvm.Dependencies
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation Dependencies.Moshi.kotlin
+    kapt Dependencies.Moshi.codegen
+
+    implementation Dependencies.Rx.kotlin
+
+    implementation Dependencies.Retrofit.retrofit
+    implementation Dependencies.Retrofit.moshiConverter
+}

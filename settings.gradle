@@ -1,0 +1,8 @@
+include ':features:ui-doggo'
+include ':features:ui-profile'
+include ':data'
+include ':features:ui-home'
+include ':features:ui-login'
+include ':commons'
+include ':app'
+rootProject.name = "mvvm-boilerplate"

@@ -1,0 +1,140 @@
+import com.mvvm.Dependencies
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.jetbrains.kotlin.android.extensions'
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.mvvm.boilerplate"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            manifestPlaceholders = [enableCrashReport: false]
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "ALLOW_OKHTTP_LOGGING", "true"
+        }
+
+        release {
+            debuggable false
+            minifyEnabled false
+            manifestPlaceholders = [enableCrashReport: true]
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "ALLOW_OKHTTP_LOGGING", "false"
+        }
+    }
+
+    flavorDimensions "env"
+    productFlavors {
+        staging {
+            dimension "env"
+            applicationIdSuffix ".staging"
+            versionNameSuffix '-staging'
+            resValue "string", "app_name", "@string/app_name_staging"
+        }
+        prod {
+            dimension "env"
+            //TODO change the value of BASE_URL for release version
+            resValue "string", "app_name", "@string/app_name_prod"
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/AL2.0'
+        exclude 'META-INF/LGPL2.1'
+        exclude("META-INF/*.kotlin_module")
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':commons')
+    implementation project(':data')
+    implementation project(':features:ui-doggo')
+    implementation project(':features:ui-login')
+    implementation project(':features:ui-home')
+    implementation project(':features:ui-profile')
+
+    implementation Dependencies.Kotlin.stdlib
+
+    implementation Dependencies.AndroidX.coreKtx
+    implementation Dependencies.AndroidX.appcompat
+    implementation Dependencies.AndroidX.constraintLayout
+    implementation Dependencies.AndroidX.legacy
+
+    implementation Dependencies.Google.material
+
+    testImplementation Dependencies.AndroidX.Test.junit
+    androidTestImplementation Dependencies.AndroidX.Test.testUnit
+    androidTestImplementation Dependencies.AndroidX.Test.espressoCore
+
+    implementation Dependencies.AndroidX.Lifecycle.livedata
+    implementation Dependencies.AndroidX.Lifecycle.extensions
+    implementation Dependencies.AndroidX.Lifecycle.viewmodel
+
+    implementation Dependencies.Koin.android
+    implementation Dependencies.Koin.viewmodel
+    implementation Dependencies.Koin.scope
+    implementation Dependencies.Koin.test
+
+    implementation Dependencies.Moshi.kotlin
+    kapt Dependencies.Moshi.codegen
+
+    implementation Dependencies.Retrofit.retrofit
+    implementation Dependencies.Retrofit.moshiConverter
+
+    implementation Dependencies.OkHttp.loggingInterceptor
+
+    implementation Dependencies.AndroidX.Navigation.fragment
+    implementation Dependencies.AndroidX.Navigation.ui
+
+    implementation Dependencies.Rx.java
+    implementation Dependencies.Rx.android
+    implementation Dependencies.Rx.retrofit
+
+    implementation Dependencies.Insetter.core
+    implementation Dependencies.Insetter.ktx
+    implementation Dependencies.Insetter.dbx
+
+    implementation Dependencies.AndroidX.Paging3.common
+    implementation Dependencies.AndroidX.Paging3.runtime
+}

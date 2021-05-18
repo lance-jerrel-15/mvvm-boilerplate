@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_bot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".96" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            card_view:cardBackgroundColor="#FFF"
+            card_view:cardCornerRadius="10dp"
+            card_view:cardElevation="3dp"
+            card_view:cardUseCompatPadding="false"
+            card_view:layout_constraintBottom_toBottomOf="@id/gl_bot"
+            card_view:layout_constraintEnd_toEndOf="@id/gl_right"
+            card_view:layout_constraintStart_toStartOf="@id/gl_left"
+            card_view:layout_constraintTop_toTopOf="@id/gl_top">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".50" />
+
+                <ImageView
+                    android:id="@+id/img_users_banner"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:scaleType="fitXY"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintEnd_toStartOf="@+id/gl_center"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    tools:src="@color/cardview_dark_background" />
+
+                <TextView
+                    android:id="@+id/txt_users_id"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:textColor="#333"
+                    android:textSize="16sp"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="@+id/gl_center"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    tools:text="id" />
+
+                <TextView
+                    android:id="@+id/txt_users_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:textColor="#333"
+                    android:textSize="16sp"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="@+id/gl_center"
+                    card_view:layout_constraintTop_toBottomOf="@id/txt_users_id"
+                    tools:text="First Name" />
+
+                <TextView
+                    android:id="@+id/txt_users_lname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:textColor="#333"
+                    android:textSize="16sp"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="@+id/gl_center"
+                    card_view:layout_constraintTop_toBottomOf="@id/txt_users_name"
+                    tools:text="Last Name" />
+
+                <TextView
+                    android:id="@+id/txt_users_email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:textColor="#333"
+                    android:textSize="16sp"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="@+id/gl_center"
+                    card_view:layout_constraintTop_toBottomOf="@id/txt_users_lname"
+                    tools:text="Email" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

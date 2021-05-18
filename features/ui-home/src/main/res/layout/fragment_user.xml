@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickBack"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.mvvm.home.user.UserViewModel" />
+
+        <import type="com.mvvm.commons.view.Result" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/purple_500">
+
+        <include
+            android:id="@+id/header"
+            layout="@layout/toolbar_common"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onClickBack="@{onClickBack}"
+            app:showBack="@{true}" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_vert_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_vert_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_hori_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".75" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_hori_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".15" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@+id/gl_hori_bottom"
+            app:layout_constraintEnd_toEndOf="@id/gl_vert_end"
+            app:layout_constraintStart_toStartOf="@id/gl_vert_start"
+            app:layout_constraintTop_toTopOf="@+id/gl_hori_top">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".UserFragment">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_vertical_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".25" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_vertical_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".75" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_horizontal_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent=".20" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_horizontal_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent=".50" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/img_avatar"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    android:elevation="10dp"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_firstName"
+                    app:layout_constraintEnd_toStartOf="@+id/gl_vertical_right"
+                    app:layout_constraintStart_toStartOf="@+id/gl_vertical_left"
+                    app:layout_constraintTop_toTopOf="@id/gl_horizontal_top">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:loadImage="@{viewModel.userEvent.peekContent().data.data.avatar}"
+                        tools:src="@drawable/abc_vector_test" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tv_firstName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.userEvent.peekContent().data.data.firstName}"
+                    app:layout_constraintEnd_toStartOf="@+id/gl_vertical_right"
+                    app:layout_constraintStart_toStartOf="@+id/gl_vertical_left"
+                    app:layout_constraintTop_toTopOf="@+id/gl_horizontal_middle"
+                    tools:text="FirstName" />
+
+                <TextView
+                    android:id="@+id/tv_lastName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.userEvent.peekContent().data.data.lastName}"
+                    app:layout_constraintEnd_toStartOf="@+id/gl_vertical_right"
+                    app:layout_constraintStart_toStartOf="@+id/gl_vertical_left"
+                    app:layout_constraintTop_toBottomOf="@id/tv_firstName"
+                    tools:text="LastName" />
+
+                <TextView
+                    android:id="@+id/tv_userId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(viewModel.userEvent.peekContent().data.data.id)}"
+                    app:layout_constraintEnd_toStartOf="@+id/gl_vertical_right"
+                    app:layout_constraintStart_toStartOf="@+id/gl_vertical_left"
+                    app:layout_constraintTop_toBottomOf="@id/tv_lastName"
+                    tools:text="Id" />
+
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.userEvent.peekContent().data.data.email}"
+                    app:layout_constraintEnd_toStartOf="@+id/gl_vertical_right"
+                    app:layout_constraintStart_toStartOf="@+id/gl_vertical_left"
+                    app:layout_constraintTop_toBottomOf="@id/tv_userId"
+                    tools:text="email" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.35" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.66" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:elevation="4dp"
+                    android:padding="8dp"
+                    android:visibility="@{viewModel.userEvent.peekContent() instanceof Result.Loading ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/gl_end"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/gl_start"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
